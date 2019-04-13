@@ -1,14 +1,23 @@
-install microk8s
+# install
 
-`./microk8s-install.sh`
+安裝 docker & k8s
 
-run nginx
+`sudo sh install-docker-k8s.sh`
 
-`kubectl apply -f dep.yaml`
+重設機器 hostname 原因為當初設定相同名稱在 join 時會出現問題
 
-`kubectl apply -f svc.yaml`
+`sh set-hostname.sh k8s-master`
 
-result
+master 機器
 
-`<Server-IP>:30180`
+`sudo sh master-init.sh`
 
+master 機器產生 token 讓 node 機器加入
+
+`sudo sh join-command.sh`
+
+# other
+
+apt-get 卡住顯示 `Could not get lock /var/lib/dpkg/lock-frontend - open (11: Resource tempor...`
+
+`sh kill-apt-get.sh`
