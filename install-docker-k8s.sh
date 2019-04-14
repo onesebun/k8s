@@ -5,7 +5,7 @@ sudo apt-get install -y apt-transport-https curl
 
 # install docker
 wget -qO- https://get.docker.com/gpg | sudo apt-key add -
-wger -qO- https://get.docker.com/ | sh
+wget -qO- https://get.docker.com/ | sh
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
