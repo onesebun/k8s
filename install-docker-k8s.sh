@@ -1,19 +1,11 @@
 #!/bin/bash
 
-# killall apt apt-get
-# sudo killall apt apt-get
-# sudo rm /var/lib/apt/lists/lock
-# sudo rm /var/cache/apt/archives/lock
-# sudo rm /var/lib/dpkg/lock*
-# sudo dpkg --configure -a
-# sudo apt update
-
 sudo apt-get update
 sudo apt-get install -y apt-transport-https curl
 
 # install docker
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
+wget -qO- https://get.docker.com/gpg | sudo apt-key add -
+wger -qO- https://get.docker.com/ | sh
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
