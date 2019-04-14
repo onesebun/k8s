@@ -1,12 +1,13 @@
 #!/bin/bash
 
 # killall apt apt-get
-sudo killall apt apt-get
-sudo rm /var/lib/apt/lists/lock
-sudo rm /var/cache/apt/archives/lock
-sudo rm /var/lib/dpkg/lock*
-sudo dpkg --configure -a
-sudo apt update
+# sudo killall apt apt-get
+# sudo rm /var/lib/apt/lists/lock
+# sudo rm /var/cache/apt/archives/lock
+# sudo rm /var/lib/dpkg/lock*
+# sudo dpkg --configure -a
+# sudo apt update
+
 sudo apt-get update && apt-get install -y apt-transport-https curl
 
 # install docker
@@ -17,9 +18,9 @@ sudo usermod -aG docker $USER
 
 # install k8s
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
+sudo bash -c 'cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
-EOF
+EOF'
 sudo apt-get update
 sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
